@@ -6,11 +6,13 @@
   "author": "Steven Silvester <stslve@amazon.com>",
   "license": "MIT",
   "scripts": {
-    "build": "webpack --mode development"
+    "build": "webpack --mode development --debug",
+    "clean": "rimraf dist"
   },
   "devDependencies": {
     "html-webpack-plugin": "^4.3.0",
-    "webpack": "5.0.0-beta.22",
+    "rimraf": "^3.0.2",
+    "webpack": "5.0.0-beta.25",
     "webpack-cli": "^3.3.12",
     "webpack-html-plugin": "^0.1.1"
   },

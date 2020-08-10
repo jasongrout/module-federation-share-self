@@ -4,8 +4,9 @@ const ModuleFederationPlugin = require("webpack").container
 const path = require("path");
 
 module.exports = {
-  entry: "./index",
+  entry: "./index2",
   mode: "development",
+  devtool: "source-map",
   devServer: {
     contentBase: path.join(__dirname,
         "dist"),
@@ -21,14 +22,15 @@ module.exports = {
         type: "var", name: "module-federation-share-self"
             },
       filename: "remoteEntry.js",
-      exposes: {
-                "./index": "./index",
-            },
+      // exposes: {
+      //           "./index": "./index",
+      //       },
       shared: {
-        "./index": {
+        "self": {
             shareKey: "module-federation-share-self",
             version: require("./package.json").version,
-            singleton: true
+            singleton: true,
+            import: "./bootstrap"
           },
             "react": { singleton: true }
         },
